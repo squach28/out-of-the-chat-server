@@ -1,3 +1,7 @@
 spring:
   datasource:
     url: OVERRIDDEN
+
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
