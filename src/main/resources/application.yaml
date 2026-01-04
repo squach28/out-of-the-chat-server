@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: out_of_the_chat
