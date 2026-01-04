@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: h2:mem:out_of_the_chat
+  jpa:
+    hibernate:
+    ddl-auto: create-drop
