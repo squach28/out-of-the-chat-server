@@ -25,12 +25,7 @@ public class TripController {
     @PostMapping
     public ResponseEntity<Trip> createTrip(@RequestBody TripRequest tripRequest) {
         try {
-            Trip trip = new Trip();
-
-            trip.setName(tripRequest.getName());
-            trip.setDescription(tripRequest.getDescription());
-
-            Trip savedTrip = this.tripService.createTrip(trip);
+            Trip savedTrip = this.tripService.createTrip(tripRequest);
 
             return ResponseEntity.ok(savedTrip);
 
