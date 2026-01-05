@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 @Transactional
@@ -49,11 +51,13 @@ public class TripRepositoryTest {
         trip.setDescription(tripDescription);
 
         Trip savedTrip = tripRepository.save(trip);
+        int tripId = savedTrip.getId();
 
-        Trip expectedTrip = tripRepository.getReferenceById(savedTrip.getId());
+        Optional<Trip> foundTrip = tripRepository.findById(tripId);
 
-        assertThat(expectedTrip).isNotNull();
-        assertThat(expectedTrip.getName()).isEqualTo(tripName);
-        assertThat(expectedTrip.getDescription()).isEqualTo(tripDescription);
+
+        assertThat(foundTrip).isPresent();
+        assertThat(foundTrip.get().getName()).isEqualTo(tripName);
+        assertThat(foundTrip.get().getDescription()).isEqualTo(tripDescription);
     }
 }
