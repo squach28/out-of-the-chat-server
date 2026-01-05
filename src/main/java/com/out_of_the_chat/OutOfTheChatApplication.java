@@ -1,4 +1,4 @@
-package com.squach.out_of_the_chat;
+package com.out_of_the_chat;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

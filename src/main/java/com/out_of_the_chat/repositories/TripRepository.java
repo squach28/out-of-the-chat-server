@@ -1,6 +1,6 @@
-package com.squach.out_of_the_chat.repositories;
+package com.out_of_the_chat.repositories;
 
-import com.squach.out_of_the_chat.entities.Trip;
+import com.out_of_the_chat.entities.Trip;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

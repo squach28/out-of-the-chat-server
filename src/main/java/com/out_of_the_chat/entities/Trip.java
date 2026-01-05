@@ -1,4 +1,4 @@
-package com.squach.out_of_the_chat.entities;
+package com.out_of_the_chat.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;

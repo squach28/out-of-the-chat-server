@@ -1,13 +1,10 @@
-package com.squach.out_of_the_chat.repositories;
+package com.out_of_the_chat.repositories;
 
-import com.squach.out_of_the_chat.OutOfTheChatApplication;
-import com.squach.out_of_the_chat.entities.Trip;
+import com.out_of_the_chat.entities.Trip;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
