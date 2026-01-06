@@ -1,2 +1,4 @@
-package com.out_of_the_chat.dto;public class LoginResponse {
+package com.out_of_the_chat.dto;
+
+public class LoginResponse {
 }
