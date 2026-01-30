@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: OVERRIDDEN
+
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      ddl-auto: update
+      show-sql: true
+jwt:
+  secret_key: OVERRIDDEN
