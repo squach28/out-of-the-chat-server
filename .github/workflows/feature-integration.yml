@@ -40,13 +40,12 @@ jobs:
             git commit -m "Integration merge of $branch"
           done
 
-      - name: Setup node.js
-        uses: actions/setup-node@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v4
         with:
-          node-version: 20
+          distribution: temurin
+          java-version: 21
+          cache: maven
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run tests
-        run: npm test
+      - name: Build & test
+        run: mvn -B clean test
