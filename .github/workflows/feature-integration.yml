@@ -49,3 +49,5 @@ jobs:
 
       - name: Build & test
         run: mvn -B clean test
+        env:
+          SPRING_PROFILES_ACTIVE: DEV
