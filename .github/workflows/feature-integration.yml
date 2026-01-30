@@ -1,0 +1,52 @@
+name: Feature Integration
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+
+jobs:
+  integrate:
+    name: Build and test feature integration
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout develop branch
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+          fetch-depth: 0
+
+      - name: Fetch all branches
+        run: git fetch --all
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Merge all feature branches
+        run: |
+          set -e
+
+          FEATURES=$(git branch -r | grep 'origin/feature/' | sed 's|origin/||')
+
+          for branch in $FEATURES; do
+            echo "🔀 Merging $branch into develop"
+            git merge --no-ff --no-commit origin/$branch || {
+              echo "❌ Conflict while merging $branch"
+              exit 1
+            }
+            git commit -m "Integration merge of $branch"
+          done
+
+      - name: Setup node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
