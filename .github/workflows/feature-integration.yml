@@ -48,6 +48,6 @@ jobs:
           cache: maven
 
       - name: Build & test
-        run: mvn -B clean test
+        run: mvn -B clean test -Djwt.secret_key=${{ secrets.JWT_SECRET_KEY }}
         env:
           SPRING_PROFILES_ACTIVE: DEV
