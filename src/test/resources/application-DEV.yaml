@@ -4,5 +4,3 @@ spring:
   jpa:
     hibernate:
     ddl-auto: create-drop
-jwt:
-  secret_key: OVERRIDDEN
