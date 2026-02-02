@@ -1,9 +1,6 @@
 package com.out_of_the_chat.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.UUID;
@@ -16,10 +13,13 @@ public class User {
     @GeneratedValue
     private UUID id;
 
+    @Column(name = "email")
     private String email;
 
+    @Column(name = "username")
     private String username;
 
+    @Column(name = "password")
     private String password;
 
 }
