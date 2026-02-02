@@ -42,7 +42,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             try {
                 String username = jwtService.extractUsername(token);
 
-                if (SecurityContextHolder.getContext() == null) {
+                if (SecurityContextHolder.getContext().getAuthentication() == null) {
                     UserDetails user = customUserDetailsService.loadUserByUsername(username);
 
                     if (jwtService.isTokenValid(token, username)) {
@@ -54,11 +54,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     }
                 }
             } catch (Exception e) {
-
+                System.out.println("Exception in jwt: " + e.getLocalizedMessage());
             }
-
-            filterChain.doFilter(request, response);
         }
+
+        filterChain.doFilter(request, response);
 
     }
 
