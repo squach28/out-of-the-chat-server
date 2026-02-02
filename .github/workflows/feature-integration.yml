@@ -37,7 +37,7 @@ jobs:
               echo "❌ Conflict while merging $branch"
               exit 1
             }
-            git commit -m --allow-empty "Integration merge of $branch"
+            git commit --allow-empty -m "Integration merge of $branch"
           done
 
       - name: Set up JDK
